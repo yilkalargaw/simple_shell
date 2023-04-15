@@ -24,6 +24,9 @@ int main(void)
 		if (command == NULL) /* nocommand */
 			continue;
 
+		if (_strcmp(command, "exit") == 0) /* if command is exit break */
+			break;
+
 		args[0] = command;
 
 		for (i = 1; i < MAX_LENGTH; i++) /* parse other tokens aka arguments */
