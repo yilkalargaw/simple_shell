@@ -1,5 +1,10 @@
 #include "shell.h"
 
+/**
+ * main - the main exec loop for the shell
+ *
+ * Return: status code
+ */
 int main(void)
 {
 	char *buffer = NULL;
@@ -21,7 +26,7 @@ int main(void)
 
 		args[0] = command;
 
-		for (i = 1; i < MAX_LENGTH; i++) /* parse other tokes aka arguments */
+		for (i = 1; i < MAX_LENGTH; i++) /* parse other tokens aka arguments */
 		{
 			args[i] = strtok(NULL, " \n");
 
