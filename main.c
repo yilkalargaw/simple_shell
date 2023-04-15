@@ -7,19 +7,27 @@ int main(void)
 	char *ps = "hsh-v01 > "; /*prompt string*/
 	char *command;
 	char *args[MAX_LENGTH];
+	int i;
 
 	while (1)
 	{
 		printf("%s", ps); /* displays prompt */
 		getline(&buffer, &bufsize, stdin); /* input */
 
-		command = strtok(buffer, " \n");
+		command = strtok(buffer, " \n"); /* tokenize */
 
-		if (command == NULL)
+		if (command == NULL) /* nocommand */
 			continue;
 
 		args[0] = command;
-		args[1] = NULL;
+
+		for (i = 1; i < MAX_LENGTH; i++) /* parse other tokes aka arguments */
+		{
+			args[i] = strtok(NULL, " \n");
+
+			if (args[i] == NULL)
+				break;
+		}
 
 		if (fork() == 0)
 			execvp(command, args);
