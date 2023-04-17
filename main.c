@@ -14,6 +14,7 @@ int main(void)
 	char *args[MAX_LENGTH];
 	int i;
 	ssize_t nread;
+	char **env_var = environ;
 
 	while (1)
 	{
@@ -22,11 +23,24 @@ int main(void)
 
 		command = strtok(buffer, " \n"); /* tokenize */
 
-		if (command == NULL) /* nocommand */
+		if (command == NULL) /* case for nocommand given*/
 			continue;
 
-		if (nread == -1 || _strcmp(command, "exit") == 0) /* if command is exit break */
+		 /* if command is exit break */
+		if (nread == -1 || _strcmp(command, "exit") == 0)
 			break;
+
+		if (_strcmp(command, "env") == 0)
+		{
+			while (*env_var != NULL)
+			{
+				printf("%s\n", *env_var);
+				env_var++;
+			}
+
+			env_var = environ;
+			continue;
+		}
 
 		args[0] = command;
 
