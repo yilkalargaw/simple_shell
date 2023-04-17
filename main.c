@@ -13,18 +13,19 @@ int main(void)
 	char *command;
 	char *args[MAX_LENGTH];
 	int i;
+	ssize_t nread;
 
 	while (1)
 	{
 		printf("%s", ps); /* displays prompt */
-		getline(&buffer, &bufsize, stdin); /* input */
+		nread = getline(&buffer, &bufsize, stdin); /* input */
 
 		command = strtok(buffer, " \n"); /* tokenize */
 
 		if (command == NULL) /* nocommand */
 			continue;
 
-		if (_strcmp(command, "exit") == 0) /* if command is exit break */
+		if (nread == -1 || _strcmp(command, "exit") == 0) /* if command is exit break */
 			break;
 
 		args[0] = command;
