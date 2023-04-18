@@ -21,13 +21,16 @@ int main(void)
 		printf("%s", ps); /* displays prompt */
 		nread = getline(&buffer, &bufsize, stdin); /* input */
 
+		if (nread == -1)
+			break;
+
 		command = strtok(buffer, " \n"); /* tokenize */
 
 		if (command == NULL) /* case for nocommand given*/
 			continue;
 
 		 /* if command is exit break */
-		if (nread == -1 || _strcmp(command, "exit") == 0)
+		if (_strcmp(command, "exit") == 0)
 			break;
 
 		if (_strcmp(command, "env") == 0)
