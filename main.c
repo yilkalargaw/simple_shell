@@ -55,6 +55,12 @@ int main(void)
 				break;
 		}
 
+		if (checkpath(command) == 0)
+		{
+			printf("command not in path \n");
+			continue;
+		}
+
 		if (fork() == 0)
 			execvp(command, args);
 		else
