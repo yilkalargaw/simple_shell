@@ -22,6 +22,9 @@ int checkpath(char *command)
 
 	args[argc] = NULL;
 
+	if (access(command, F_OK) != -1)
+		return (1);
+
 	/* Check if command exists in path */
 	for (i = 0; i < argc; i++)
 	{
