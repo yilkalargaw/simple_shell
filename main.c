@@ -9,12 +9,9 @@ int main(void)
 {
 	char *buffer = NULL;
 	size_t bufsize = 0;
-	char *ps = "hsh-v01 > "; /*prompt string*/
-	char *command;
-	char *args[MAX_LENGTH];
+	char *ps = "hsh-v01 > ", *command, *args[MAX_LENGTH], **env_var = environ;
 	int i;
 	ssize_t nread;
-	char **env_var = environ;
 
 	while (1)
 	{
@@ -35,11 +32,8 @@ int main(void)
 
 		if (_strcmp(command, "env") == 0)
 		{
-			while (*env_var != NULL)
-			{
+			for (; *env_var != NULL; env_var++)
 				printf("%s\n", *env_var);
-				env_var++;
-			}
 
 			env_var = environ;
 			continue;
@@ -53,6 +47,17 @@ int main(void)
 
 			if (args[i] == NULL)
 				break;
+		}
+
+		if (_strcmp(command, "cd") == 0)
+		{
+			if (args[1] == NULL)
+				chdir(_getenv("HOME"));
+			else if (chdir(args[1]) == -1)
+			{
+				printf("chdir failed");
+				continue;
+			}
 		}
 
 		if (checkpath(command) == 0)
