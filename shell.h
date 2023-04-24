@@ -12,7 +12,10 @@
 
 extern char **environ;
 
+size_t _strlen(const char *s);
 int _strcmp(char *s1, char *s2);
+int _strncmp(const char *str1, const char *str2, size_t n);
+char *_strdup(char *str);
 char *_getenv(const char *name);
 int checkpath(char *command);
 

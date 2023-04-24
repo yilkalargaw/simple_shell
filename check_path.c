@@ -9,7 +9,7 @@
 int checkpath(char *command)
 {
 	char *path = _getenv("PATH");
-	char *path_copy = strdup(path);
+	char *path_copy = _strdup(path);
 	int argc = 0, found = 0, i = 0, j = 0;
 	char *token = strtok(path_copy, ":"); /* path commands */
 	char *args[MAX_LINE / 2 + 1]; /* command line arguments */
