@@ -44,7 +44,6 @@ int main(int argc, char *argv[])
 		}
 
 		fork() == 0 ? execvp(command, args) : wait(NULL);
-
 	}
 
 	FREE_MEM(buffer);
