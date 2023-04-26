@@ -1,6 +1,6 @@
 0x16. C - Simple Shell
 A simple implementation of shell in C
-GROUP PROJECT: Project to be done in teams of 2 people (your team: Chioma Igwe, Yilkal Workneh)
+GROUP PROJECT: Project done in teams of 2 people (your team: Chioma Igwe, Yilkal Workneh)
 
 Learning Objectives
 At the end of this project, you are expected to be able to explain to anyone, without the help of Google
@@ -84,3 +84,20 @@ hsh main.c shell.c
 ($)
 ($) exit
 $
+
+root@dd252920e987:/simple_shell# ls
+AUTHORS       _getenv.c  Makefile        README.md  _strcmp.c  _strlen.c   _strtok.c
+check_path.c  main.c     print_string.c  shell.h    _strdup.c  _strncmp.c
+root@dd252920e987:/simple_shell# gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
+root@dd252920e987:/simple_shell# ./hsh
+$ ls
+AUTHORS       _getenv.c  main.c    print_string.c  shell.h    _strdup.c  _strncmp.c
+check_path.c  hsh        Makefile  README.md       _strcmp.c  _strlen.c  _strtok.c
+$ /bin/ls
+AUTHORS       _getenv.c  main.c    print_string.c  shell.h    _strdup.c  _strncmp.c
+check_path.c  hsh        Makefile  README.md       _strcmp.c  _strlen.c  _strtok.c
+$ exit
+
+AUTHORS
+CHIOMA IGWE
+YILKAL WORKNEH
