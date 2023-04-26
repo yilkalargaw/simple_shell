@@ -65,3 +65,27 @@ void print_error_many(int count, ...)
 	}
 	va_end(args);
 }
+
+/**
+ * print_int_stderr - prints an int to standard error
+ * @num - input number
+ *
+ * Return: void
+ */
+void print_int_stderr(int num)
+{
+	int a = num;
+	char c = '0';
+
+	if (num < 0)
+	{
+		write(STDERR_FILENO, "-", 1);
+		num = -num;
+	}
+	if (num > 9)
+		print_int_stderr(num / 10);
+
+	c = '0' + (a % 10);
+
+	write(STDERR_FILENO, &c, 1);
+}

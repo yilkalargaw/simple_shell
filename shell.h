@@ -24,12 +24,26 @@ void print_out(char *str);
 void print_out_many(int count, ...);
 void print_error(char *str);
 void print_error_many(int count, ...);
+void print_int_stderr(int num);
 
 #define PRINT_IF_TERMINAL(prpt) \
 	do { \
 		if (isatty(STDIN_FILENO)) \
 		{ \
 			print_out(prpt); \
+		} \
+	} while (0)
+
+#define PRINT_ERROR_ATTY(cnt) \
+	do { \
+		if (isatty(STDIN_FILENO)) \
+		{ \
+			print_error_many(4, argv[0], ": ", command, ": command not found \n"); \
+		} else \
+		{ \
+			print_error_many(2, argv[0], ": "); \
+			print_int_stderr(cnt); \
+			print_error_many(3, ": ", command, ": command not found \n"); \
 		} \
 	} while (0)
 

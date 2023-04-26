@@ -12,7 +12,7 @@ int main(int argc, char *argv[])
 	char *buffer = NULL;
 	size_t bufsize = 0;
 	char *ps = "$ ", *command, *args[MAX_LENGTH], **env_var = environ;
-	int i;
+	int i, count = 1;
 	ssize_t nread;
 
 	argc += 0;
@@ -34,19 +34,18 @@ int main(int argc, char *argv[])
 			break;
 
 		PARSE_ARGUMENTS();
-
 		PROCESS_BUILTINS();
 
 		if (checkpath(command) == 0)
 		{
-			print_error_many(4, argv[0], ": ", command, ": command not found \n");
+			PRINT_ERROR_ATTY(count);
 			continue;
 		}
 
 		fork() == 0 ? execvp(command, args) : wait(NULL);
+		count++;
 	}
 
 	FREE_MEM(buffer);
-
 	return (0);
 }
