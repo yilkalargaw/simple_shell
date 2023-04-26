@@ -4,7 +4,8 @@
  * @s: string to search
  * @c: character to locate
  *
- * Return: pointer to the first occurrence of the character c in the string s,
+ * Return: pointer to the first occurrence of the
+ * character c in the string s,
  * or NULL if the character is not found
  */
 char *_strchr(const char *s, int c)
@@ -16,7 +17,8 @@ char *_strchr(const char *s, int c)
 }
 
 /**
- * _strtok - A function that breaks a string into a sequence of zero or more nonempty tokens.
+ * _strtok - A function that breaks a string into
+ * a sequence of zero or more nonempty tokens.
  * @str: The string to be parsed.
  * @delim: The delimiter characters.
  *
@@ -24,7 +26,7 @@ char *_strchr(const char *s, int c)
  */
 char *_strtok(char *str, const char *delim)
 {
-	static char *last = NULL;
+	static char *last;
 	char *token;
 
 	if (str != NULL)
@@ -35,15 +37,16 @@ char *_strtok(char *str, const char *delim)
 
 	token = last;
 
-	while (*last != '\0') {
+	while (*last != '\0')
+	{
 		if (strchr(delim, *last) != NULL)
 		{
 			*last++ = '\0';
 
 			if (*token != '\0')
 				return (token);
-			else
-				token = last;
+
+			token = last;
 		}
 		else
 			last++;
@@ -51,5 +54,5 @@ char *_strtok(char *str, const char *delim)
 
 	last = NULL;
 
-	return (*token != '\0') ? (token) : (NULL);
+	return ((*token != '\0') ? (token) : (NULL));
 }
