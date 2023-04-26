@@ -38,12 +38,14 @@ void print_int_stderr(int num);
 	do { \
 		if (isatty(STDIN_FILENO)) \
 		{ \
-			print_error_many(4, argv[0], ": ", command, ": command not found \n"); \
+			print_error_many(2, argv[0], ": "); \
+			print_int_stderr(cnt); \
+			print_error_many(3, ": ", command, ": not found \n"); \
 		} else \
 		{ \
 			print_error_many(2, argv[0], ": "); \
 			print_int_stderr(cnt); \
-			print_error_many(3, ": ", command, ": command not found \n"); \
+			print_error_many(3, ": ", command, ": not found \n"); \
 		} \
 	} while (0)
 

@@ -12,7 +12,7 @@ int main(int argc, char *argv[])
 	char *buffer = NULL;
 	size_t bufsize = 0;
 	char *ps = "$ ", *command, *args[MAX_LENGTH], **env_var = environ;
-	int i, count = 1;
+	int i, count = 0;
 	ssize_t nread;
 
 	argc += 0;
@@ -29,6 +29,7 @@ int main(int argc, char *argv[])
 
 		if (command == NULL)
 			continue;
+		count++;
 
 		if (_strcmp(command, "exit") == 0)
 			break;
@@ -43,7 +44,6 @@ int main(int argc, char *argv[])
 		}
 
 		fork() == 0 ? execvp(command, args) : wait(NULL);
-		count++;
 	}
 
 	FREE_MEM(buffer);
