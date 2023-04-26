@@ -2,6 +2,8 @@
 
 /**
  * main - the main exec loop for the shell
+ * @argc: argument count
+ * @argv: argument vector
  *
  * Return: status code
  */
@@ -13,8 +15,7 @@ int main(int argc, char *argv[])
 	int i;
 	ssize_t nread;
 
-	argc++;
-	argc--;
+	argc += 0;
 
 	while (1)
 	{
@@ -38,8 +39,7 @@ int main(int argc, char *argv[])
 
 		if (checkpath(command) == 0)
 		{
-			print_error_many(4, argv[0],": ",
-							 command,  ": command not found \n");
+			print_error_many(4, argv[0], ": ", command, ": command not found \n");
 			continue;
 		}
 
