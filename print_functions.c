@@ -68,7 +68,7 @@ void print_error_many(int count, ...)
 
 /**
  * print_int_stderr - prints an int to standard error
- * @num - input number
+ * @num: input number
  *
  * Return: void
  */
