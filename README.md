@@ -1,11 +1,9 @@
-0x16. C - Simple Shell
+#0x16. C - Simple Shell
 
 A simple implementation of shell in C
-
-
 GROUP PROJECT: Project done in teams of 2 people (your team: Chioma Igwe, Yilkal Workneh)
 
-Learning Objectives
+##Learning Objectives
 At the end of this project, you are expected to be able to explain to anyone, without the help of Google
 
 General
@@ -25,7 +23,7 @@ How to execute another program with the execve system call
 How to suspend the execution of a process until one of its children terminates
 What is EOF / “end-of-file"
 
-Requirements
+##Requirements
 
 General
 
@@ -44,7 +42,7 @@ You should have an AUTHORS file at the root of your repository, listing all indi
 GitHub
 *There should be one project repository per group. If you and your partner have a repository with the same name in both your accounts, you risk a 0% score. Add your partner as a collaborator. *
 
-List of allowed functions and system calls
+##List of allowed functions and system calls
 access (man 2 access)
 chdir (man 2 chdir)
 close (man 2 close)
@@ -81,8 +79,8 @@ Compilation
 our shell is compiled using:
 gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
 
-Testing
-Our shell is configired to work as shown below:
+##Testing
+Our shell is configureed to work as shown below:
 
 $ ./hsh
 ($) /bin/ls
@@ -104,6 +102,6 @@ AUTHORS       _getenv.c  main.c    print_string.c  shell.h    _strdup.c  _strncm
 check_path.c  hsh        Makefile  README.md       _strcmp.c  _strlen.c  _strtok.c
 $ exit
 
-AUTHORS
-CHIOMA IGWE
+##AUTHORS
+CHIOMA IGWE and 
 YILKAL WORKNEH
