@@ -39,7 +39,7 @@ char *_strtok(char *str, const char *delim)
 
 	while (*last != '\0')
 	{
-		if (strchr(delim, *last) != NULL)
+		if (_strchr(delim, *last) != NULL)
 		{
 			*last++ = '\0';
 
