@@ -8,8 +8,8 @@
 #include <sys/wait.h>
 #include <stdarg.h>
 
-#define MAX_LENGTH 1024
-#define MAX_LINE 1024
+#define MAX_LENGTH 2048
+#define MAX_LINE 2048
 
 extern char **environ;
 
