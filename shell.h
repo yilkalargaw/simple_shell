@@ -24,4 +24,44 @@ void print_out_many(int count, ...);
 void print_error(char *str);
 void print_error(char *str);
 
+#define PROCESS_BUILTINS() \
+	do { \
+		if (_strcmp(command, "env") == 0) \
+		{ \
+			for (; *env_var != NULL; env_var++) \
+				print_out_many(2, *env_var, "\n"); \
+			env_var = environ; \
+			continue; \
+		} \
+		if (_strcmp(command, "cd") == 0) \
+		{ \
+			if (args[1] == NULL) \
+				chdir(_getenv("HOME")); \
+			else if (chdir(args[1]) == -1) \
+			{ \
+				print_error("chdir failed"); \
+				continue; \
+			} \
+		} \
+	} while (0)
+
+/* #define CHECK_COMMAND_PATH() \ */
+/*	do { \ */
+/*		if (checkpath(command) == 0) \ */
+/*		{ \ */
+/*			print_error("command not in path \n"); \ */
+/*			continue; \ */
+/*		} \ */
+/*	} while (0) */
+
+#define PARSE_ARGUMENTS() \
+	do { \
+		for (i = 1; i < MAX_LENGTH; i++) \
+		{ \
+			args[i] = strtok(NULL, " \n"); \
+			if (args[i] == NULL) \
+				break; \
+		} \
+	} while (0)
+
 #endif
