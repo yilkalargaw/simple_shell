@@ -9,7 +9,7 @@
 #include <stdarg.h>
 
 #define MAX_LENGTH 1024
-#define MAX_LINE 80
+#define MAX_LINE 1024
 
 extern char **environ;
 
