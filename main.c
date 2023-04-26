@@ -15,7 +15,7 @@ int main(void)
 
 	while (1)
 	{
-		printf("%s", ps); /* displays prompt */
+		print_out(ps); /* displays prompt */
 		nread = getline(&buffer, &bufsize, stdin); /* input */
 
 		if (nread == -1)
@@ -33,7 +33,7 @@ int main(void)
 		if (_strcmp(command, "env") == 0)
 		{
 			for (; *env_var != NULL; env_var++)
-				printf("%s\n", *env_var);
+				print_out_many(2, *env_var, "\n");
 
 			env_var = environ;
 			continue;
@@ -55,14 +55,14 @@ int main(void)
 				chdir(_getenv("HOME"));
 			else if (chdir(args[1]) == -1)
 			{
-				printf("chdir failed");
+				print_error("chdir failed");
 				continue;
 			}
 		}
 
 		if (checkpath(command) == 0)
 		{
-			printf("command not in path \n");
+			print_error("command not in path \n");
 			continue;
 		}
 
