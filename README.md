@@ -75,5 +75,12 @@ Compilation
 our shell is compiled using:
 gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
 
+Testing
+Our shell is configired to work as shown below:
 
-
+$ ./hsh
+($) /bin/ls
+hsh main.c shell.c
+($)
+($) exit
+$
