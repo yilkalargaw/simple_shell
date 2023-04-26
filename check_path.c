@@ -14,11 +14,8 @@ int checkpath(char *command)
 	char *token = strtok(path_copy, ":"); /* path commands */
 	char *args[MAX_LINE / 2 + 1]; /* command line arguments */
 
-	while (token != NULL)
-	{
+	for (; token != NULL; token = strtok(NULL, ":"))
 		args[argc++] = token;
-		token = strtok(NULL, ":");
-	}
 
 	args[argc] = NULL;
 
@@ -46,6 +43,8 @@ int checkpath(char *command)
 			break;
 		}
 	}
+
+	FREE_MEM(path_copy);
 
 	return (found);
 }

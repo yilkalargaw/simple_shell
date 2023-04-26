@@ -43,5 +43,7 @@ int main(void)
 
 	}
 
+	FREE_MEM(buffer);
+
 	return (0);
 }
