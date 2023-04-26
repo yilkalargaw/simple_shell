@@ -25,6 +25,14 @@ void print_out_many(int count, ...);
 void print_error(char *str);
 void print_error(char *str);
 
+#define PRINT_IF_TERMINAL(prpt) \
+	do { \
+		if (isatty(STDIN_FILENO)) \
+		{ \
+			print_out(prpt); \
+		} \
+	} while (0)
+
 #define PROCESS_BUILTINS() \
 	do { \
 		if (_strcmp(command, "env") == 0) \

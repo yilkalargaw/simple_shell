@@ -9,13 +9,13 @@ int main(void)
 {
 	char *buffer = NULL;
 	size_t bufsize = 0;
-	char *ps = "hsh-v01 > ", *command, *args[MAX_LENGTH], **env_var = environ;
+	char *ps = "$ ", *command, *args[MAX_LENGTH], **env_var = environ;
 	int i;
 	ssize_t nread;
 
 	while (1)
 	{
-		print_out(ps); /* displays prompt */
+		PRINT_IF_TERMINAL(ps); /* displays prompt */
 		nread = getline(&buffer, &bufsize, stdin); /* input */
 
 		if (nread == -1)
