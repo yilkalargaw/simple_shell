@@ -1,10 +1,15 @@
 0x16. C - Simple Shell
+
 A simple implementation of shell in C
+
+
 GROUP PROJECT: Project done in teams of 2 people (your team: Chioma Igwe, Yilkal Workneh)
 
 Learning Objectives
 At the end of this project, you are expected to be able to explain to anyone, without the help of Google
+
 General
+
 Who designed and implemented the original Unix operating system
 Who wrote the first version of the UNIX shell
 Who invented the B programming language (the direct predecessor to the C programming language)
@@ -23,6 +28,7 @@ What is EOF / “end-of-file"
 Requirements
 
 General
+
 Allowed editors: vi, vim, emacs
 All your files will be compiled on Ubuntu 20.04 LTS using gcc, using the options -Wall -Werror -Wextra -pedantic -std=gnu89
 All your files should end with a new line
