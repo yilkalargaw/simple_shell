@@ -29,8 +29,6 @@ int main(void)
 		if (_strcmp(command, "exit") == 0)
 			break;
 
-		args[0] = command;
-
 		PARSE_ARGUMENTS();
 
 		PROCESS_BUILTINS();

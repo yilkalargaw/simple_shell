@@ -57,6 +57,7 @@ void print_error(char *str);
 
 #define PARSE_ARGUMENTS() \
 	do { \
+		args[0] = command; \
 		for (i = 1; i < MAX_LENGTH; i++) \
 		{ \
 			args[i] = strtok(NULL, " \n"); \
