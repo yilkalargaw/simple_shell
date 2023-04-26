@@ -5,13 +5,16 @@
  *
  * Return: status code
  */
-int main(void)
+int main(int argc, char *argv[])
 {
 	char *buffer = NULL;
 	size_t bufsize = 0;
 	char *ps = "$ ", *command, *args[MAX_LENGTH], **env_var = environ;
 	int i;
 	ssize_t nread;
+
+	argc++;
+	argc--;
 
 	while (1)
 	{
@@ -35,7 +38,8 @@ int main(void)
 
 		if (checkpath(command) == 0)
 		{
-			print_error("command not in path \n");
+			print_error_many(4, argv[0],": ",
+							 command,  ": command not found \n");
 			continue;
 		}
 

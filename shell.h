@@ -23,7 +23,7 @@ int checkpath(char *command);
 void print_out(char *str);
 void print_out_many(int count, ...);
 void print_error(char *str);
-void print_error(char *str);
+void print_error_many(int count, ...);
 
 #define PRINT_IF_TERMINAL(prpt) \
 	do { \
