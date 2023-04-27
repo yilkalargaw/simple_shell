@@ -107,4 +107,23 @@ void print_int_stderr(int num);
 		ptr2 = NULL; \
 	} while (0)
 
+#define MANAGE_FORKING(depid) \
+	do { \
+		pid = fork(); \
+		if (depid == 0) \
+		{ \
+			execvp(command, args); \
+			exit(1); \
+		} \
+		else if (depid > 0) \
+		{ \
+			waitpid(depid, &status, 0); \
+		} \
+		else \
+		{ \
+			printf("Fork failed\n"); \
+			exit(1); \
+		} \
+	} while (0)
+
 #endif

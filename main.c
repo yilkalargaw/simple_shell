@@ -12,8 +12,9 @@ int main(int argc, char *argv[])
 	char *buffer = NULL;
 	size_t bufsize = 0;
 	char *ps = "$ ", *command, *args[MAX_LENGTH], **env_var = environ;
-	int i, count = 0;
+	int i, count = 0, status;
 	ssize_t nread;
+	pid_t pid;
 
 	argc += 0;
 
@@ -43,7 +44,7 @@ int main(int argc, char *argv[])
 			continue;
 		}
 
-		fork() == 0 ? execvp(command, args) : wait(NULL);
+		MANAGE_FORKING(pid);
 	}
 
 	FREE_MEM(buffer);
