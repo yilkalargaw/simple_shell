@@ -18,6 +18,7 @@ int checkpath(char *command)
 		args[argc++] = token;
 
 	args[argc] = NULL;
+	FREE_MEM2(path_copy, token);
 
 	if (access(command, F_OK) != -1)
 		return (1);
@@ -43,8 +44,5 @@ int checkpath(char *command)
 			break;
 		}
 	}
-
-	FREE_MEM(path_copy);
-
 	return (found);
 }

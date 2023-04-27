@@ -99,12 +99,12 @@ void print_int_stderr(int num);
 		} \
 	} while (0)
 
-/* #define FREE_MEM2(ptr1, ptr2)							\ */
-/*	do {\ */
-/*		free(ptr1); \ */
-/*		ptr1 = NULL; \ */
-/*		free(ptr2); \ */
-/*		ptr2 = NULL; \ */
-/*	} while (0) */
+#define FREE_MEM2(ptr1, ptr2) \
+	do { \
+		free(ptr1); \
+		ptr1 = NULL; \
+		free(ptr2); \
+		ptr2 = NULL; \
+	} while (0)
 
 #endif
