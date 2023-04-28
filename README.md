@@ -92,6 +92,8 @@ $
 ```
 
 ```
+## Test Example:
+
 root@dd252920e987:/simple_shell# ls
 AUTHORS       _getenv.c  Makefile        README.md  _strcmp.c  _strlen.c   _strtok.c
 check_path.c  main.c     print_string.c  shell.h    _strdup.c  _strncmp.c
@@ -106,6 +108,6 @@ check_path.c  hsh        Makefile  README.md       _strcmp.c  _strlen.c  _strtok
 $ exit
 
 ```
-##AUTHORS
+## AUTHORS
 Chioma Igwe and 
 Yilkal Argaw
