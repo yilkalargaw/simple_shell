@@ -1,58 +1,30 @@
 #include "shell.h"
+
 /**
- * _strchr - locate character in string
+ * strspn - find length of the initial segment of a string that contains
+ * characters from a specified set
+ *
  * @s: string to search
- * @c: character to locate
+ * @accept: allowed characters
  *
- * Return: pointer to the first occurrence of the
- * character c in the string s,
- * or NULL if the character is not found
+ * Return: length of the initial segment of a string
  */
-char *_strchr(const char *s, int c)
+size_t _strspn(const char *s, const char *accept)
 {
-	while (*s != (char)c)
-		if (!*s++)
-			return (NULL);
-	return ((char *)s);
-}
+	size_t i = 0, j = 0;
 
-/**
- * _strtok - A function that breaks a string into
- * a sequence of zero or more nonempty tokens.
- * @str: The string to be parsed.
- * @delim: The delimiter characters.
- *
- * Return: A pointer to the next token, or NULL if there are no more tokens.
- */
-char *_strtok(char *str, const char *delim)
-{
-	static char *last;
-	char *token;
-
-	if (str != NULL)
-		last = str;
-
-	if (last == NULL)
-		return (NULL);
-
-	token = last;
-
-	while (*last != '\0')
+	for (; s[i]; i++)
 	{
-		if (_strchr(delim, *last) != NULL)
+		j = 0;
+
+		while (accept[j])
 		{
-			*last++ = '\0';
-
-			if (*token != '\0')
-				return (token);
-
-			token = last;
+			if (s[i] == accept[j])
+				break;
+			j++;
 		}
-		else
-			last++;
+		if (!accept[j])
+			break;
 	}
-
-	last = NULL;
-
-	return ((*token != '\0') ? (token) : (NULL));
+	return (i);
 }
