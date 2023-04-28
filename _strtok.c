@@ -69,9 +69,8 @@ char *_strtok(char *s, const char *delim)
 {
 	static char *x;
 
-	if (!s)
-		return (NULL);
-	s = x;
+	s = !s ? x : s;
+
 	if (!s)
 		return (NULL);
 
