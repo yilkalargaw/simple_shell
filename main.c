@@ -18,8 +18,7 @@ int main(int argc, char *argv[])
 
 	argc = (argv[0] != NULL) ? (argc + 0) : argc;
 
-
-while (1)
+	while (1)
 	{
 		PRINT_IF_TERMINAL(ps); /* displays prompt */
 		nread = getline(&buffer, &bufsize, stdin); /* input */
@@ -34,25 +33,18 @@ while (1)
 			status = 0;
 			continue;
 		}
-
 		count++;
-
 		EXIT_IF_COMMAND_IS_EXIT();
-
 		PARSE_ARGUMENTS();
-
 		if (process_builtins(command, args) == 0)
 			continue;
-
 		if (checkpath(command) == 0)
 		{
 			PRINT_ERROR_ATTY(count);
 			continue;
 		}
-
 		MANAGE_FORKING(pid);
 	}
-
 	FREE_MEM(buffer);
 	return (status);
 }
