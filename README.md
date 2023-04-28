@@ -1,7 +1,9 @@
 # 0x16. C - Simple Shell
 
 A simple implementation of shell in C
-GROUP PROJECT: Project done in teams of 2 people (your team: Chioma Igwe, Yilkal Workneh)
+
+##GROUP PROJECT: 
+Project done in teams of 2 people (your team: Chioma Igwe, Yilkal Workneh)
 
 ## Learning Objectives
 At the end of this project, you are expected to be able to explain to anyone, without the help of Google
