@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
 		if (nread == -1)
 			break;
 
-		command = strtok(buffer, " \n"); /* tokenize */
+		command = _strtok(buffer, " \n"); /* tokenize */
 
 		if (command == NULL)
 		{

@@ -27,6 +27,8 @@ void print_error(char *str);
 void print_error_many(int count, ...);
 void print_int_stderr(int num);
 int process_builtins(char *command, char *args[MAX_LENGTH]);
+size_t _strspn(const char *s, const char *accept);
+size_t _strcspn(const char *s, const char *reject);
 
 #define PRINT_IF_TERMINAL(prpt) \
 	do { \
@@ -56,7 +58,7 @@ int process_builtins(char *command, char *args[MAX_LENGTH]);
 		args[0] = command; \
 		for (i = 1; i < MAX_LENGTH; i++) \
 		{ \
-			args[i] = strtok(NULL, " \n"); \
+			args[i] = _strtok(NULL, " \n"); \
 			if (args[i] == NULL) \
 				break; \
 		} \
