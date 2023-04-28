@@ -32,8 +32,7 @@ int main(int argc, char *argv[])
 			continue;
 		count++;
 
-		if (_strcmp(command, "exit") == 0)
-			break;
+		EXIT_IF_COMMAND_IS_EXIT();
 
 		PARSE_ARGUMENTS();
 		PROCESS_BUILTINS();

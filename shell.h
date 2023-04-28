@@ -126,4 +126,14 @@ void print_int_stderr(int num);
 		} \
 	} while (0)
 
+#define EXIT_IF_COMMAND_IS_EXIT() \
+	do { \
+		if (_strcmp(command, "exit") == 0) \
+		{ \
+			FREE_MEM(buffer); \
+			exit(2); \
+			break; \
+		} \
+	} while (0)
+
 #endif
