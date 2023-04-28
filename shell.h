@@ -51,15 +51,6 @@ int process_builtins(char *command, char *args[MAX_LENGTH]);
 		} \
 	} while (0)
 
-/* #define CHECK_COMMAND_PATH() \ */
-/*	do { \ */
-/*		if (checkpath(command) == 0) \ */
-/*		{ \ */
-/*			print_error("command not in path \n"); \ */
-/*			continue; \ */
-/*		} \ */
-/*	} while (0) */
-
 #define PARSE_ARGUMENTS() \
 	do { \
 		args[0] = command; \
