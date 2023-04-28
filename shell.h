@@ -133,8 +133,8 @@ void print_int_stderr(int num);
 	do { \
 		if (_strcmp(command, "exit") == 0) \
 		{ \
-			/* FREE_MEM(buffer); */ \
-			/* exit(2);  */\
+			FREE_MEM(buffer); \
+			exit(status); \
 			break; \
 		} \
 	} while (0)
