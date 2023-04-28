@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * strspn - find length of the initial segment of a string that contains
+ * _strspn - find length of the initial segment of a string that contains
  * characters from a specified set
  *
  * @s: string to search
@@ -29,7 +29,7 @@ size_t _strspn(const char *s, const char *accept)
 	return (i);
 }
 /**
- * strcspn - find length of the initial segment of a string that contains
+ * _strcspn - find length of the initial segment of a string that contains
  * characters not in a specified set
  *
  * @s: string to search
@@ -48,14 +48,15 @@ size_t _strcspn(const char *s, const char *reject)
 		while (reject[j])
 		{
 			if (s[i] == reject[j])
-				return i;
+				return (i);
 			j++;
 		}
 	}
 	return (i);
 }
 
-/** _strchr - locate character in string
+/**
+ * _strtok - tokenize a string based on delimiter
  * @s: string to search
  * @delim: delimiter string
  *
@@ -68,7 +69,10 @@ char *_strtok(char *s, const char *delim)
 {
 	static char *x;
 
-	if (!s && !(s = x))
+	if (!s)
+		return (NULL);
+	s = x;
+	if (!s)
 		return (NULL);
 
 	s += _strspn(s, delim);
