@@ -55,3 +55,33 @@ size_t _strcspn(const char *s, const char *reject)
 	return (i);
 }
 
+/** _strchr - locate character in string
+ * @s: string to search
+ * @delim: delimiter string
+ *
+ * Return: pointer to the first occurrence of the
+ * delimiter string delim in the string s,
+ * or NULL if the character is not found
+ */
+
+char *_strtok(char *s, const char *delim)
+{
+	static char *x;
+
+	if (!s && !(s = x))
+		return (NULL);
+
+	s += _strspn(s, delim);
+
+	if (!*s)
+		return (x = 0);
+
+	x = s + _strcspn(s, delim);
+
+	if (*x)
+		*x++ = 0;
+	else
+		x = 0;
+
+	return (s);
+}
