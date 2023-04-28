@@ -117,7 +117,10 @@ void print_int_stderr(int num);
 		} \
 		else if (depid > 0) \
 		{ \
-			waitpid(depid, &status, 0); \
+			wait(&status); \
+			if (WIFEXITED(status)) \
+				status = WEXITSTATUS(status); \
+			/* waitpid(depid, &status, 0); */ \
 		} \
 		else \
 		{ \
@@ -130,8 +133,8 @@ void print_int_stderr(int num);
 	do { \
 		if (_strcmp(command, "exit") == 0) \
 		{ \
-			FREE_MEM(buffer); \
-			exit(2); \
+			/* FREE_MEM(buffer); */ \
+			/* exit(2);  */\
 			break; \
 		} \
 	} while (0)

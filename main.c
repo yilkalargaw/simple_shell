@@ -12,7 +12,7 @@ int main(int argc, char *argv[])
 	char *buffer = NULL;
 	size_t bufsize = 0;
 	char *ps = "$ ", *command, *args[MAX_LENGTH], **env_var = environ;
-	int i, count = 0, status;
+	int i, count = 0, status = 0;
 	ssize_t nread;
 	pid_t pid;
 
@@ -47,5 +47,5 @@ int main(int argc, char *argv[])
 	}
 
 	FREE_MEM(buffer);
-	return (0);
+	return (status);
 }
