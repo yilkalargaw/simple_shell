@@ -117,10 +117,9 @@ void print_int_stderr(int num);
 		} \
 		else if (depid > 0) \
 		{ \
-			wait(&status); \
+			waitpid(depid, &status, 0); \
 			if (WIFEXITED(status)) \
 				status = WEXITSTATUS(status); \
-			/* waitpid(depid, &status, 0); */ \
 		} \
 		else \
 		{ \
