@@ -21,7 +21,7 @@ int process_builtins(char *command, char *args[MAX_LENGTH])
 		if (args[1] == NULL)
 			chdir(_getenv("HOME"));
 		else if (chdir(args[1]) == -1)
-				print_error("chdir failed");
+			print_error("chdir failed");
 	}
 	else
 		status = 1;

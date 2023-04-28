@@ -51,26 +51,6 @@ int process_builtins(char *command, char *args[MAX_LENGTH]);
 		} \
 	} while (0)
 
-/* #define PROCESS_BUILTINS() \ */
-/* 	do { \ */
-/* 		if (_strcmp(command, "env") == 0) \ */
-/* 		{ \ */
-/* 			for (i = 0 ; environ[i] != NULL; i++) \ */
-/* 				print_out_many(2, environ[i], "\n"); \ */
-/* 			continue; \ */
-/* 		} \ */
-/* 		if (_strcmp(command, "cd") == 0) \ */
-/* 		{ \ */
-/* 			if (args[1] == NULL) \ */
-/* 				chdir(_getenv("HOME")); \ */
-/* 			else if (chdir(args[1]) == -1) \ */
-/* 			{ \ */
-/* 				print_error("chdir failed"); \ */
-/* 				continue; \ */
-/* 			} \ */
-/* 		} \ */
-/* 	} while (0) */
-
 /* #define CHECK_COMMAND_PATH() \ */
 /*	do { \ */
 /*		if (checkpath(command) == 0) \ */

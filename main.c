@@ -41,7 +41,7 @@ while (1)
 
 		PARSE_ARGUMENTS();
 
-		if(process_builtins(command, args) == 0)
+		if (process_builtins(command, args) == 0)
 			continue;
 
 		if (checkpath(command) == 0)
