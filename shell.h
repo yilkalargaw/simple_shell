@@ -18,6 +18,7 @@ int _strcmp(char *s1, char *s2);
 int _strncmp(const char *str1, const char *str2, size_t n);
 char *_strdup(char *str);
 char *_strchr(const char *str, int ch);
+char *_strtok(char *str, const char *delim);
 char *_getenv(const char *name);
 int checkpath(char *command);
 void print_out(char *str);
@@ -25,6 +26,7 @@ void print_out_many(int count, ...);
 void print_error(char *str);
 void print_error_many(int count, ...);
 void print_int_stderr(int num);
+int process_builtins(char *command, char *args[MAX_LENGTH]);
 
 #define PRINT_IF_TERMINAL(prpt) \
 	do { \
@@ -49,26 +51,25 @@ void print_int_stderr(int num);
 		} \
 	} while (0)
 
-#define PROCESS_BUILTINS() \
-	do { \
-		if (_strcmp(command, "env") == 0) \
-		{ \
-			for (; *env_var != NULL; env_var++) \
-				print_out_many(2, *env_var, "\n"); \
-			env_var = environ; \
-			continue; \
-		} \
-		if (_strcmp(command, "cd") == 0) \
-		{ \
-			if (args[1] == NULL) \
-				chdir(_getenv("HOME")); \
-			else if (chdir(args[1]) == -1) \
-			{ \
-				print_error("chdir failed"); \
-				continue; \
-			} \
-		} \
-	} while (0)
+/* #define PROCESS_BUILTINS() \ */
+/* 	do { \ */
+/* 		if (_strcmp(command, "env") == 0) \ */
+/* 		{ \ */
+/* 			for (i = 0 ; environ[i] != NULL; i++) \ */
+/* 				print_out_many(2, environ[i], "\n"); \ */
+/* 			continue; \ */
+/* 		} \ */
+/* 		if (_strcmp(command, "cd") == 0) \ */
+/* 		{ \ */
+/* 			if (args[1] == NULL) \ */
+/* 				chdir(_getenv("HOME")); \ */
+/* 			else if (chdir(args[1]) == -1) \ */
+/* 			{ \ */
+/* 				print_error("chdir failed"); \ */
+/* 				continue; \ */
+/* 			} \ */
+/* 		} \ */
+/* 	} while (0) */
 
 /* #define CHECK_COMMAND_PATH() \ */
 /*	do { \ */
