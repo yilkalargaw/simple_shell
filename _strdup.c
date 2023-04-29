@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * _strdup - returns a pointer to allocated space
+ * _strdup - funct that returns a pointer to allocated space
  * @str: the string to duplicate
  *
  * Return: a pointer to the duplicated string
