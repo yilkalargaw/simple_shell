@@ -4,10 +4,12 @@
  * process_builtins - a function to process builtins
  * @command: the command
  * @args: the arguments
+ * @cnt: execution line count
+ * @ag0: name of executable
  *
  * Return: status
  */
-int process_builtins(char *command, char *args[MAX_LENGTH], int count, char* argv0)
+int process_builtins(char *command, char *args[MAX_LENGTH], int cnt, char *ag0)
 {
 	int i = 0, status = 0;
 
@@ -22,9 +24,9 @@ int process_builtins(char *command, char *args[MAX_LENGTH], int count, char* arg
 			chdir(_getenv("HOME"));
 		else if (chdir(args[1]) == -1)
 		{
-			print_error_many(2, argv0, ": "); \
-			print_int_stderr(count); \
-			print_error_many(5, ": ", command, ": can't cd to ", args[1], "\n"); \
+			print_error_many(2, ag0, ": ");
+			print_int_stderr(cnt);
+			print_error_many(5, ": ", command, ": can't cd to ", args[1], "\n");
 		}
 	}
 	else

@@ -27,7 +27,7 @@ void print_error(char *str);
 void print_error_many(int count, ...);
 void print_int_stderr(int num);
 /* int process_builtins(char *command, char *args[MAX_LENGTH], int count); */
-int process_builtins(char *command, char *args[MAX_LENGTH], int count, char* argv0);
+int process_builtins(char *command, char *args[MAX_LENGTH], int cnt, char *a0);
 size_t _strspn(const char *s, const char *accept);
 size_t _strcspn(const char *s, const char *reject);
 
