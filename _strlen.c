@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- *_strlen - return length of a string
+ *_strlen - funct that returns length of a string
  * @s: pointer to the first char of string
  *
  *Return: length
