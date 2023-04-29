@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * _strncmp - compare string values of given length n
+ * _strncmp - funct that compare string values of given length n
  * @str1: string 1
  * @str2: string 2
  * @n: length char count
