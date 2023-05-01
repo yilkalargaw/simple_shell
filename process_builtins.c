@@ -29,6 +29,16 @@ int process_builtins(char *command, char *args[MAX_LENGTH], int cnt, char *ag0)
 			print_error_many(5, ": ", command, ": can't cd to ", args[1], "\n");
 		}
 	}
+	else if (_strcmp(command, "setenv") == 0)
+	{
+		/* value = _getenv(arg[1]); */
+		_setenv(args[1], args[2], 1);
+	}
+	else if (_strcmp(command, "unsetenv") == 0)
+	{
+		/* value = _getenv(arg[1]); */
+		_unsetenv(args[1]);
+	}
 	else
 		status = 1;
 

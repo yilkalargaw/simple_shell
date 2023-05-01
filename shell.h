@@ -19,6 +19,7 @@ int _strncmp(const char *str1, const char *str2, size_t n);
 char *_strdup(char *str);
 char *_strchr(const char *str, int ch);
 char *_strtok(char *str, const char *delim);
+char *_strcpy(char *dest, char *src);
 char *_getenv(const char *name);
 int checkpath(char *command);
 void print_out(char *str);
@@ -30,6 +31,11 @@ void print_int_stderr(int num);
 int process_builtins(char *command, char *args[MAX_LENGTH], int cnt, char *a0);
 size_t _strspn(const char *s, const char *accept);
 size_t _strcspn(const char *s, const char *reject);
+char *_memcpy(char *dest, const char *src, unsigned int n);
+char *_getenv(const char *name);
+int _setenv(const char *envtvar, const char *value, int overwrite);
+int _unsetenv(const char *envtvar);
+int _putenv(char *string);
 
 #define PRINT_IF_TERMINAL(prpt) \
 	do { \
