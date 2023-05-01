@@ -113,8 +113,13 @@ $ exit
 0. Betty would be proud
 
 1. Simple shell 0.1
+Handle command lines with arguments
 
 2. Simple shell 0.2
+	Handle command lines with arguments
+
+3. Simple shell 0.3
+
 
 ```
 ## AUTHORS
