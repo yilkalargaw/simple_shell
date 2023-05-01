@@ -92,7 +92,7 @@ int _setenv(const char *envtvar, const char *value, int overwrite)
 	else
 		result = _putenv(str);
 
-	free(str);
+	FREE_MEM(str);
 
 	return (result);
 }

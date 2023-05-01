@@ -36,8 +36,10 @@ int main(int argc, char *argv[])
 		count++;
 		EXIT_IF_COMMAND_IS_EXIT();
 		PARSE_ARGUMENTS();
-		if (process_builtins(command, args, count, argv[0]) == 0)
+		if (process_builtins(command, args, count, argv[0]) == 0 ||
+			process_builtins(command, args, count, argv[0]) == -10)
 			continue;
+
 		if (checkpath(command) == 0)
 		{
 			PRINT_ERROR_ATTY(count);

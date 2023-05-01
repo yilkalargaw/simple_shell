@@ -32,11 +32,15 @@ int process_builtins(char *command, char *args[MAX_LENGTH], int cnt, char *ag0)
 	else if (_strcmp(command, "setenv") == 0)
 	{
 		/* value = _getenv(arg[1]); */
+		if (args[1] == NULL || args[2] == NULL)
+			return (-10);
 		_setenv(args[1], args[2], 1);
 	}
 	else if (_strcmp(command, "unsetenv") == 0)
 	{
 		/* value = _getenv(arg[1]); */
+		if (args[1] == NULL)
+			return (-10);
 		_unsetenv(args[1]);
 	}
 	else
