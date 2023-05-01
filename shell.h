@@ -135,7 +135,14 @@ int _putenv(char *string);
 				free(buffer); \
 				buffer = ""; \
 				bufsize = 0; \
-			}\
+			} \
+	} while (0)
+
+#define RUN_BUILTINS() \
+	do { \
+		if (process_builtins(command, args, count, argv[0]) == 0 || \
+			process_builtins(command, args, count, argv[0]) == -10) \
+			continue; \
 	} while (0)
 
 #endif

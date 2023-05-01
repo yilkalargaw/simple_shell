@@ -39,9 +39,8 @@ int main(int argc, char *argv[])
 		EXIT_IF_COMMAND_IS_EXIT();
 
 		PARSE_ARGUMENTS();
-		if (process_builtins(command, args, count, argv[0]) == 0 ||
-			process_builtins(command, args, count, argv[0]) == -10)
-			continue;
+
+		RUN_BUILTINS();
 
 		if (checkpath(command) == 0)
 		{
