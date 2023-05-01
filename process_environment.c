@@ -48,6 +48,8 @@ int _putenv(char *string)
 
 	*ep = name;
 	*(++ep) = NULL;
+
+	FREE_MEM(name);
 	return (0);
 }
 
