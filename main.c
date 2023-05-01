@@ -27,9 +27,7 @@ int main(int argc, char *argv[])
 			break;
 
 		PROCESS_COMMENTS_AND_BUFFER(buffer);
-
-		command = _strtok(buffer, " \n"); /* tokenize */
-
+		command = _strtok(buffer, " \n");
 		if (command == NULL)
 		{
 			status = 0;
@@ -37,11 +35,8 @@ int main(int argc, char *argv[])
 		}
 		count++;
 		EXIT_IF_COMMAND_IS_EXIT();
-
 		PARSE_ARGUMENTS();
-
 		RUN_BUILTINS();
-
 		if (checkpath(command) == 0)
 		{
 			PRINT_ERROR_ATTY(count);
