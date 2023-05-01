@@ -109,6 +109,13 @@ AUTHORS       _getenv.c  main.c    print_string.c  shell.h    _strdup.c  _strncm
 check_path.c  hsh        Makefile  README.md       _strcmp.c  _strlen.c  _strtok.c
 $ exit
 
+## Tasks
+0. Betty would be proud
+
+1. Simple shell 0.1
+
+2. Simple shell 0.2
+
 ```
 ## AUTHORS
 Chioma Igwe and 
