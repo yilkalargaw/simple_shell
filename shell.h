@@ -119,4 +119,23 @@ int _putenv(char *string);
 		} \
 	} while (0)
 
+#define PROCESS_COMMENTS_AND_BUFFER(buffer) \
+	do { \
+		buffer[_strcspn(buffer, "\n")] = 0; \
+		comment_start = _strchr(buffer, '#'); \
+		if (comment_start != NULL && \
+			comment_start != buffer && \
+			*(comment_start - 1) == ' ') \
+			{ \
+				*(comment_start - 1) = '\0'; \
+			} \
+		else if (comment_start != NULL && \
+				 comment_start == buffer) \
+			{ \
+				free(buffer); \
+				buffer = ""; \
+				bufsize = 0; \
+			}\
+	} while (0)
+
 #endif
